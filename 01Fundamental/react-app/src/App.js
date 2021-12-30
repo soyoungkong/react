@@ -26,9 +26,12 @@ class App extends Component{
     return (
     // 컴포넌트 이름에만 집중할 수 있음. 
     <div className="App">
-      <Subject></Subject>
+      <Subject title="Component create test" subTitle="New Component created"></Subject>
       <Toc></Toc>
-      <Contents></Contents>
+      <Contents cTitle="1. A" contents="What is 'A"></Contents>
+      <Contents cTitle="2. B" contents="What is 'B"></Contents>
+      <hr/>
+      <Subject title="Props test" subTitle="Set the value"></Subject>
     </div>
     )
   }
@@ -39,8 +42,8 @@ class Subject extends Component{
     return (      // 컴포넌트는 하나의 최상위 태그로 감싸야 한다. 
       // jsx(facebook에서 만듦)로 코드를 작성하면, 알아서 브라우저에서 html태그로 인식하여 컨버팅 한다. 
     <header>     
-      <h1>Component create test</h1>
-      <p>New Component created</p>
+      <h1>Title : {this.props.title}</h1>
+      <p>{this.props.subTitle}</p>
     </header>
     )
   }
@@ -64,8 +67,8 @@ class Contents extends Component{
   render() {      
     return (      
     <article>     
-      <h2> 1. A </h2>
-      <p> What is 'A'</p>
+      <h2>{this.props.cTitle}</h2>
+      <p>{this.props.contents}</p>
     </article>
     )
   }
